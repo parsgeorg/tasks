@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 1.1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  list-style: none;
+}
+
+.off-canvas-wrapper {
+  background: #cd6;
+}
+
+.ok {
+  border: 3px solid green;
+}
+
+.err {
+  border: 3px solid red;
+}
+
+.tasks {
+  background: inherit;
+}
+
+h1,
+h2 {
+  font-weight: bold;
+  margin: 0 auto;
+  background: #fd8; /* Цвет фона */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Параметры тени */
+  padding: 10px;
+  border-radius: 50%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+р #feedback .form-group {
+  width: 500px;
+}

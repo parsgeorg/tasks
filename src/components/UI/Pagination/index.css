@@ -1,0 +1,48 @@
+ul {
+  list-style: none;
+}
+.pagination {
+  display: flex;
+}
+
+.pagination > li > button,
+.pagination > li > span {
+  position: relative;
+
+  padding: 1px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.pagination > .active > button,
+.pagination > .active > button:focus,
+.pagination > .active > button:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+  z-index: 3;
+  color: #fff;
+  cursor: pointer;
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+
+.is-invalid {
+  border: 3px solid red;
+}
+
+.invalid-feedback {
+  color: red;
+}
+
+#success-alert {
+  display: none;
+}
+
+#myModal {
+  display: block;
+}
