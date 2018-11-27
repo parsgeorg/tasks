@@ -22,7 +22,7 @@ class View extends Component {
         username: "string",
         email: "string",
         text: "string",
-        status: "num"
+        status: "string"
       }
     };
 
@@ -212,11 +212,16 @@ class View extends Component {
             </select>
           </TableCell>
         ) : (
-          <TableCell numeric>{item.status}</TableCell>
+          <TableCell numeric>
+            {item.status === 0 ? "Не выполнено" : "Выполнено"}
+          </TableCell>
         )}
-        <TableCell numeric>
-          {item.status === 10 ? "Выполнена" : "Ожидает выполнения"}
-        </TableCell>
+        {isAuthorized() && (
+          <TableCell numeric>
+            {item.status === 10 ? "Выполнено" : "Ожидает выполнения"}(Изменено
+            админом)
+          </TableCell>
+        )}
       </TableRow>
     );
   };
@@ -263,7 +268,9 @@ class View extends Component {
                   <TableCell data-field="text" numeric>
                     Статус {sort.status}
                   </TableCell>
-                  <TableCell numeric>Смс о выполнении</TableCell>
+                  {isAuthorized() && (
+                    <TableCell numeric>Cмс о редактировании админом</TableCell>
+                  )}
                 </TableRow>
               </TableHead>
               <TableBody>
