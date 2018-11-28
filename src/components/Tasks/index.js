@@ -4,7 +4,6 @@ import { addTask, fileUpload, getTasks } from "../../services/Tasks";
 import { isAuthorized, logout } from "../../session";
 import Modal from "../UI/Modal";
 import Pagination from "../UI/Pagination";
-//import "./styles.css";
 
 class Tasks extends React.Component {
   state = {
@@ -12,12 +11,10 @@ class Tasks extends React.Component {
     username: "",
     email: "",
     text: "",
-    // image: "",
-    // currentPage: 1,
-    // todosPerPage: 2,
     isModalShow: false,
     isValidName: false,
-    isValidEmail: false
+    isValidEmail: false,
+    isShowSuccessMessage: false
   };
   componentDidMount() {
     getTasks().then(res => {
@@ -42,7 +39,8 @@ class Tasks extends React.Component {
   };
 
   checkText = valField => {
-    if (valField.length > 100) this.setState({ isValidText: false });
+    if (!valField || valField.length > 100)
+      this.setState({ isValidText: false });
     else this.setState({ isValidText: true });
   };
 
@@ -68,6 +66,7 @@ class Tasks extends React.Component {
   addTask = ev => {
     ev.preventDefault();
     const { username, email, text } = this.state;
+
     const task = {
       username,
       email,
@@ -75,8 +74,9 @@ class Tasks extends React.Component {
     };
     addTask(task).then(product => {
       const products = this.state.products.concat(product);
-      this.setState({ products });
+      this.setState({ products, isShowSuccessMessage: true });
     });
+    document.querySelectorAll("input, textarea").forEach(el => (el.value = ""));
   };
 
   viewAddedTask = () => {
@@ -92,7 +92,8 @@ class Tasks extends React.Component {
       isModalShow,
       isValidName,
       isValidEmail,
-      isValidText
+      isValidText,
+      isShowSuccessMessage
     } = this.state;
 
     const modalData = [];
@@ -214,6 +215,10 @@ class Tasks extends React.Component {
                   onChange={ev => {
                     bootstrapValidate(
                       "#text",
+                      "required:Поле обязательно к заполнению!"
+                    );
+                    bootstrapValidate(
+                      "#text",
                       "max:100: Текст не более 100 символов!"
                     );
                     this.changeField(ev);
@@ -234,7 +239,7 @@ class Tasks extends React.Component {
 
               <div className="panel-body">
                 <div className="row">
-                  <div className="col-md-1">
+                  <div className="col-md-5">
                     <a href="/">Отмена</a>
                   </div>
 
@@ -262,11 +267,14 @@ class Tasks extends React.Component {
             >
               Добавить таск
             </button>
-
-            <div className="alert alert-success hidden" id="success-alert">
-              <h2>Успех</h2>
-              <div>Ваши данные были успешно отправлены.</div>
-            </div>
+            {isShowSuccessMessage && (
+              <div className="alert alert-success alert-dismissible fade show successedAddedTaskMessage">
+                <button type="button" className="close" data-dismiss="alert">
+                  &times;
+                </button>
+                <strong>Новая задача успешно добавлена!</strong>
+              </div>
+            )}
           </div>
         </div>
       </div>

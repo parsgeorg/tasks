@@ -1,14 +1,5 @@
 import React from "react";
-//import { Product } from '../../services/Products';
 import View from "./View";
-
-// const Input = styled.input.attrs({
-//   type: "text"
-// })`
-//   display: inline-block;
-//   width: 50% !important;
-//   margin: 0 auto !important;
-// `;
 
 class FilteredProducts extends React.Component {
   state = {
@@ -38,11 +29,6 @@ class FilteredProducts extends React.Component {
   render() {
     return (
       <div>
-        {/* <Input
-          id="filterProducts"
-          onKeyUp={this.onEnter}
-          placeholder="Введите значение искомого элемента"
-        /> */}
         <View products={this.props.products} />
       </div>
     );

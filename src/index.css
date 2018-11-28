@@ -25,6 +25,8 @@ ul {
 
 .tasks {
   background: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -40,6 +42,33 @@ h2 {
   align-items: center;
 }
 
+h1 {
+  text-align: center;
+}
+
 р #feedback .form-group {
   width: 500px;
+}
+
+#btnPrev,
+#btnNext {
+  display: none;
+}
+
+.successedAddedTaskMessage {
+  position: absolute;
+  top: 60%;
+  left: 35%;
+  z-index: 100;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.login button {
+  margin-top: 10%;
 }

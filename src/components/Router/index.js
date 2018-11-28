@@ -4,9 +4,6 @@ import { history } from "../../history";
 import LoginForm from "../LoginForm";
 import NotFound from "../NotFound";
 import Tasks from "../Tasks";
-// import Welcome from '../Wellcome';
-// import GuestRoute from './GuestRoute';
-// import PrivateRoute from './PrivateRoute';
 
 const Router = () => (
   <ReactRouter history={history}>

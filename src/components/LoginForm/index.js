@@ -1,5 +1,4 @@
 import React from "react";
-//import { Alert } from 'reactstrap';
 import { login } from "../../session";
 import View from "./View";
 
@@ -7,7 +6,6 @@ const isValidUser = ({ userName, password }) =>
   userName === "admin" && password === "123";
 
 const angryDeny = () => {
-  //return <Alert color="danger">This is a danger alert — check it out!</Alert>;
   return alert("Пшел вон!");
 };
 
