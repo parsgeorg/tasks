@@ -121,10 +121,10 @@ class View extends Component {
   renderItem = item => {
     return (
       <tr className="table-secondary" key={item.id}>
-        <td numeric>{item.username}</td>
-        <td numeric>{item.email}</td>
+        <td>{item.username}</td>
+        <td>{item.email}</td>
         {isAuthorized() ? (
-          <td numeric>
+          <td>
             <textarea
               name="text"
               className="form-control"
@@ -138,14 +138,14 @@ class View extends Component {
             />
           </td>
         ) : (
-          <td numeric>{item.text}</td>
+          <td>{item.text}</td>
         )}
-        <td numeric>
+        <td>
           <img src={item.image_path} alt="" width="100px" />
         </td>
 
         {isAuthorized() ? (
-          <td numeric>
+          <td>
             <select
               className="form-control"
               defaultValue={item.status}
@@ -159,10 +159,10 @@ class View extends Component {
             </select>
           </td>
         ) : (
-          <td numeric>{item.status === 0 ? "Не выполнено" : "Выполнено"}</td>
+          <td>{item.status === 0 ? "Не выполнено" : "Выполнено"}</td>
         )}
         {isAuthorized() && (
-          <td numeric>
+          <td>
             {item.status === 10 ? "Выполнено" : "Ожидает выполнения"}(Изменено
             админом)
           </td>
@@ -190,49 +190,25 @@ class View extends Component {
         </div>
 
         <div className="row">
-          <table class="table table-striped">
+          <table className="table table-striped">
             <thead>
               <tr className="table-primary">
-                <th
-                  scope="col"
-                  data-field="text"
-                  numeric
-                  onClick={this.handleThClick}
-                >
+                <th scope="col" data-field="text" onClick={this.handleThClick}>
                   {" "}
                   Имя пользователя {sort.username}
                 </th>
-                <th
-                  scope="col"
-                  data-field="text"
-                  numeric
-                  onClick={this.handleThClick}
-                >
+                <th scope="col" data-field="text" onClick={this.handleThClick}>
                   Email
                 </th>
-                <th
-                  scope="col"
-                  data-field="text"
-                  numeric
-                  onClick={this.handleThClick}
-                >
+                <th scope="col" data-field="text" onClick={this.handleThClick}>
                   {" "}
                   Текст задачи {sort.text}
                 </th>
-                <th scope="col" numeric>
-                  Картинка
-                </th>
-                <th
-                  scope="col"
-                  data-field="text"
-                  numeric
-                  onClick={this.handleThClick}
-                >
+                <th scope="col">Картинка</th>
+                <th scope="col" data-field="text" onClick={this.handleThClick}>
                   Статус {sort.status}
                 </th>
-                {isAuthorized() && (
-                  <th numeric>Cмс о редактировании админом</th>
-                )}
+                {isAuthorized() && <th>Cмс о редактировании админом</th>}
               </tr>
             </thead>
             <tbody className="table-striped">

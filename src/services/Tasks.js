@@ -23,7 +23,6 @@ export const fileUpload = async () => {
   let image_holder = $("#image-holder");
   image_holder.empty();
   if (extn === "gif" || extn === "png" || extn === "jpg" || extn === "jpeg") {
-    $("#save").prop("disabled", false);
     if (typeof FileReader != "undefined") {
       for (let i = 0; i < countFiles; i++) {
         let reader = new FileReader();
@@ -41,14 +40,11 @@ export const fileUpload = async () => {
     } else {
       alert("This browser does not support FileReader.");
     }
-  } else {
-    if (imgPath.length > 0) {
-      alert("Загрузите пожалуйста файл с расширением jpeg/pmg/gif!" + imgPath);
-      $("#save").prop("disabled", true);
-    } else {
-      $("#save").prop("disabled", false);
-    }
   }
+  // } else {
+  //   if (imgPath.length > 0)
+  //     alert("Загрузите пожалуйста файл с расширением jpeg/png/gif!" + imgPath);
+  // }
 };
 
 export const addTask = async task => {

@@ -22,3 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
+build.tgz
+dayside.rar
+src.rar
+src/components/Tasks/index — копия.js
+src/components/Tasks/index — копия (2).js
+src/components/UI/Forms/Tasks/AddTaskForm/index1.js
+src/helpers/ValidationWithImg.js

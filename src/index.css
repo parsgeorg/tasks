@@ -7,6 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a,
+a:hover {
+  color: #fff;
+  text-decoration-line: none;
+}
+
 ul {
   list-style: none;
 }
@@ -20,13 +26,11 @@ ul {
 }
 
 .err {
-  border: 3px solid red;
+  color: red;
 }
 
-.tasks {
-  background: inherit;
-  display: flex;
-  flex-direction: column;
+.errField {
+  border: 3px solid red !important;
 }
 
 h1,
@@ -48,6 +52,16 @@ h1 {
 
 р #feedback .form-group {
   width: 500px;
+}
+
+.tasks {
+  background: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks th:hover {
+  cursor: pointer;
 }
 
 #btnPrev,

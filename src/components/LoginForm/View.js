@@ -1,10 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const View = props => (
   <form onSubmit={props.submit}>
-    <div class="container login">
-      <div class="row">
-        <div class="col-sm">
+    <div className="container login">
+      <div className="row">
+        <div className="col-sm">
+          <Link to="/">На главную</Link>
+        </div>
+        <div className="col-sm">
           <label>Логин</label>
           <input
             type="text"
@@ -14,7 +18,7 @@ const View = props => (
             value={props.userName}
           />
         </div>
-        <div class="col-sm">
+        <div className="col-sm">
           <label>Пароль</label>
           <input
             type="password"
@@ -24,7 +28,7 @@ const View = props => (
             value={props.password}
           />
         </div>
-        <div class="col-sm">
+        <div className="col-sm">
           <button className="btn btn-lg btn-success">Авторизоваться</button>
         </div>
       </div>
