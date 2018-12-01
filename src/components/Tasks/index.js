@@ -28,7 +28,7 @@ class Tasks extends React.Component {
         <div>
           {!isAuthorized() ? (
             <button className="btn btn-lg btn-success">
-              <a href="/login">Login</a>
+              <a href="/login">Авторизоваться</a>
             </button>
           ) : (
             <button onClick={logout} className="btn btn-lg btn-success">

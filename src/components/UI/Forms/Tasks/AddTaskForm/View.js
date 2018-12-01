@@ -1,4 +1,5 @@
 import React from "react";
+import Message from "../../../Messages";
 
 class View extends React.Component {
   render() {
@@ -11,7 +12,7 @@ class View extends React.Component {
       emailErr,
       textErr,
       imgErr,
-      isValidForm,
+      isValidImg,
       fileUpload,
       viewAddedTask,
       addTask,
@@ -139,19 +140,21 @@ class View extends React.Component {
               type="button"
               className="btn btn-lg btn-success"
               disabled={
-                !isValidForm || usernameErr || emailErr || textErr || imgErr
+                usernameErr ||
+                emailErr ||
+                textErr ||
+                imgErr ||
+                !username ||
+                !email ||
+                !text ||
+                !isValidImg
               }
             >
               Добавить таск
             </button>
 
             {isShowSuccessMessage && (
-              <div className="alert alert-success alert-dismissible fade show successedAddedTaskMessage">
-                <button type="button" className="close" data-dismiss="alert">
-                  &times;
-                </button>
-                <strong>Новая задача успешно добавлена!</strong>
-              </div>
+              <Message text="Новая задача успешно добавлена!" />
             )}
           </div>
         </div>

@@ -39,7 +39,8 @@
     "styled-components": "^4.1.1",
     "superagent": "^4.0.0",
     "tablesorter": "^2.31.1",
-    "type-is": "^1.6.16"
+    "type-is": "^1.6.16",
+    "yup": "^0.26.6"
   },
   "scripts": {
     "start": "react-scripts start",

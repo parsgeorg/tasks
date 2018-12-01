@@ -21,11 +21,10 @@ export const validateImg = () => {
   const img = document.getElementById("fileUpload").files[0];
 
   let resCheck =
-    img.name.includes(".jpg") || img.name.includes(".png")
-      ? // (img && img.name.includes(".jpg")) ||
-        // (img && img.name.includes(".png")) ||
-        // (img && img.name.includes(".gif"))
-        ""
+    (img && img.name.includes(".jpg")) ||
+    (img && img.name.includes(".png")) ||
+    (img && img.name.includes(".gif"))
+      ? ""
       : "Загружаемая картинка должна быть одного из трех форматов - jpg, gif или png";
 
   return resCheck;

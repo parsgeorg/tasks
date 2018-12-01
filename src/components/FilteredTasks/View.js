@@ -20,7 +20,7 @@ class View extends Component {
 
     // state
     this.state = {
-      products: [],
+      tasks: [],
       productValue: "",
       isValidText: false,
       isValidStatus: false
@@ -28,8 +28,8 @@ class View extends Component {
   }
 
   componentDidMount() {
-    let products = this.fetchProducts(); // init
-    this.setState({ products });
+    let tasks = this.fetchTasks(); // init
+    this.setState({ tasks });
   }
 
   sortNumbers = (a, b) => {
@@ -55,15 +55,15 @@ class View extends Component {
   };
 
   // берем продукты из базы
-  fetchProducts = () => {
+  fetchTasks = () => {
     let sortField = this.buff.sortField;
 
-    let products = this.props.products;
+    let tasks = this.props.tasks;
 
-    if ("text" === this.buff.fields[sortField]) products.sort(this.sortStrings);
-    else products.sort(this.sortNumbers);
+    if ("text" === this.buff.fields[sortField]) tasks.sort(this.sortStrings);
+    else tasks.sort(this.sortNumbers);
 
-    return products;
+    return tasks;
   };
 
   // метод выполняется, когда кликам на заголовки в таблице
@@ -81,12 +81,12 @@ class View extends Component {
     // запрашиваем продукты заново с новыми сортировками
     this.buff.sortField = sortField;
     this.buff.sortDir = sortDir;
-    let products = this.fetchProducts();
+    let tasks = this.fetchTasks();
 
     // перерисовываем
     this.setState({
       ...this.state,
-      products: products
+      tasks
     });
   };
 
@@ -173,6 +173,7 @@ class View extends Component {
 
   // отрисовка всего элемента
   render() {
+    console.log(this.props);
     let sort = {
       id: null,
       username: null,
@@ -212,7 +213,7 @@ class View extends Component {
               </tr>
             </thead>
             <tbody className="table-striped">
-              {this.props.products.map(item => this.renderItem(item))}
+              {this.props.tasks.map(item => this.renderItem(item))}
             </tbody>
           </table>
         </div>

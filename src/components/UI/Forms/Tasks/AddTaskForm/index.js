@@ -20,7 +20,7 @@ class AddTaskForm extends React.Component {
     textErr: "",
     imgErr: "",
 
-    isValidForm: false,
+    isValidImg: false,
 
     isModalShow: false,
     isShowSuccessMessage: false
@@ -32,29 +32,29 @@ class AddTaskForm extends React.Component {
       validateAlpabetical(valField) ||
       validateMaxLength(16)(valField);
 
-    if (err) return this.setState({ usernameErr: err, isValidForm: false });
-    return this.setState({ usernameErr: "", isValidForm: true });
+    if (err) return this.setState({ usernameErr: err });
+    return this.setState({ usernameErr: "" });
   };
 
   checkEmail = valField => {
     let err = validateRequired(valField) || validateEmail(valField);
 
-    if (err) return this.setState({ emailErr: err, isValidForm: false });
-    return this.setState({ emailErr: "", isValidForm: true });
+    if (err) return this.setState({ emailErr: err });
+    return this.setState({ emailErr: "" });
   };
 
   checkText = valField => {
     let err = validateRequired(valField) || validateMaxLength(100)(valField);
 
-    if (err) return this.setState({ textErr: err, isValidForm: false });
-    return this.setState({ textErr: "", isValidForm: true });
+    if (err) return this.setState({ textErr: err });
+    return this.setState({ textErr: "" });
   };
 
   checkImg = () => {
     let err = validateImg();
-    console.log(err);
-    if (err) return this.setState({ imgErr: err, isValidForm: false });
-    return this.setState({ imgErr: "", isModalShow: false, isValidForm: true });
+
+    if (err) return this.setState({ imgErr: err, isValidImg: false });
+    return this.setState({ imgErr: "", isModalShow: false, isValidImg: true });
   };
 
   // checkValidForm = () => {
@@ -109,6 +109,7 @@ class AddTaskForm extends React.Component {
       });
     });
     document.getElementById("image-holder").innerHTML = "";
+    //document.getElementById("fileUpload").value = "";
     document.getElementById("save").disabled = true;
   };
 
@@ -126,7 +127,7 @@ class AddTaskForm extends React.Component {
       emailErr,
       textErr,
       imgErr,
-      isValidForm,
+      isValidImg,
       isModalShow,
       isShowSuccessMessage
     } = this.state;
@@ -156,7 +157,7 @@ class AddTaskForm extends React.Component {
           emailErr={emailErr}
           textErr={textErr}
           imgErr={imgErr}
-          isValidForm={isValidForm}
+          isValidImg={isValidImg}
           fileUpload={fileUpload}
           isModalShow={isModalShow}
           modalData={modalData}

@@ -1,6 +1,6 @@
 import $ from "jquery";
 import React, { Component } from "react";
-import FilteredProducts from "../../FilteredProducts";
+import FilteredTasks from "../../FilteredTasks";
 import "./index.css";
 
 export default class Pagination extends Component {
@@ -190,7 +190,7 @@ export default class Pagination extends Component {
     }
     return (
       <div>
-        <FilteredProducts products={currentTasks} />
+        <FilteredTasks tasks={currentTasks} />
         <ul className="pagination">
           {renderPrevBtn}
           {pageDecrementBtn}
