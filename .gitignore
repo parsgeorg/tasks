@@ -29,3 +29,8 @@ src/components/Tasks/index — копия.js
 src/components/Tasks/index — копия (2).js
 src/components/UI/Forms/Tasks/AddTaskForm/index1.js
 src/helpers/ValidationWithImg.js
+src/components/FilteredProducts/View.js
+src/components/FilteredProducts/index.js
+src/components/FilteredTasks/View — копия.js
+src/components/FilteredTasks/ViewWithSeparatedWorkingSorting.js
+src/components/FilteredTasks/index — копия.js

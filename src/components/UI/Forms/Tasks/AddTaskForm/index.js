@@ -83,8 +83,6 @@ class AddTaskForm extends React.Component {
 
   fileUpload = () => {
     fileUpload();
-    // const img = document.getElementById("fileUpload").files[0];
-    // this.checkImg(img);
     this.checkImg();
   };
 
@@ -105,11 +103,12 @@ class AddTaskForm extends React.Component {
         isShowSuccessMessage: true,
         username: "",
         email: "",
-        text: ""
+        text: "",
+        img: ""
       });
     });
     document.getElementById("image-holder").innerHTML = "";
-    //document.getElementById("fileUpload").value = "";
+    //document.getElementById("fileUpload")[0].value = "";
     document.getElementById("save").disabled = true;
   };
 
