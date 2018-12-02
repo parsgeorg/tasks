@@ -4,15 +4,15 @@ import { editTask } from "../../services/Tasks";
 import { buff, sortNumbers, sortStrings } from "../Sorting";
 import View from "./View";
 
-class FilteredTasks extends React.Component {
+class SortedTasks extends React.Component {
   state = {
     tasks: [],
-    productValue: "",
+    taskValue: "",
     textErr: ""
   };
 
   componentDidMount() {
-    let tasks = this.fetchTasks(); // init
+    let tasks = this.fetchTasks();
     this.setState({ tasks });
   }
 
@@ -27,7 +27,6 @@ class FilteredTasks extends React.Component {
     return tasks;
   };
 
-  // метод выполняется, когда кликам на заголовки в таблице
   handleThClick = ev => {
     let sortField = buff.sortField;
     let sortDir = buff.sortDir;
@@ -59,12 +58,10 @@ class FilteredTasks extends React.Component {
     return this.setState({ textErr: "" });
   };
 
-  showError = ev => (ev.target.style.border = "3px solid red");
-
   saveChanges = (ev, id) => {
     const { value, name } = ev.target;
 
-    if (this.state.productValue !== value && !this.state.textErr) {
+    if (this.state.taskValue !== value && !this.state.textErr) {
       editTask({
         id,
         [name]: value
@@ -73,28 +70,8 @@ class FilteredTasks extends React.Component {
   };
 
   onFocus = e => {
-    this.setState({ productValue: e.target.value });
+    this.setState({ taskValue: e.target.value });
   };
-
-  setTasks = tasks => this.setState({ tasks });
-
-  filterTasks = value => {
-    value = value.trim();
-
-    if (value === "") return this.setTasks(this.props.tasks);
-
-    const filteredTasks = this.props.tasks.filter(
-      task =>
-        task.username.indexOf(value) !== -1 ||
-        task.email.indexOf(value) !== -1 ||
-        task.text.indexOf(value) !== -1
-    );
-
-    this.setTask(filteredTasks);
-  };
-
-  onEnter = ({ keyCode, currentTarget: { value } }) =>
-    keyCode === 13 && this.filteredTasks(value);
 
   render() {
     const { onFocus, checkText, saveChanges, handleThClick } = this;
@@ -116,4 +93,4 @@ class FilteredTasks extends React.Component {
   }
 }
 
-export default FilteredTasks;
+export default SortedTasks;

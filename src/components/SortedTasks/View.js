@@ -7,7 +7,7 @@ class View extends Component {
   renderItem = item => {
     const { onFocus, checkText, saveChanges } = this.props;
     return (
-      <Fragment>
+      <Fragment key={item.id}>
         <tr className="table-secondary" key={item.id}>
           <td>{item.username}</td>
           <td>{item.email}</td>

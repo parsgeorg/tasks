@@ -1,6 +1,6 @@
 import React from "react";
 import { getTasks } from "../../services/Tasks";
-import { isAuthorized, logout } from "../../session";
+import Login from "../Auth/Login";
 import AddTaskForm from "../UI/Forms/Tasks/AddTaskForm";
 import Pagination from "../UI/Pagination";
 
@@ -25,17 +25,7 @@ class Tasks extends React.Component {
 
     return (
       <div>
-        <div>
-          {!isAuthorized() ? (
-            <button className="btn btn-lg btn-success">
-              <a href="/login">Авторизоваться</a>
-            </button>
-          ) : (
-            <button onClick={logout} className="btn btn-lg btn-success">
-              Logout
-            </button>
-          )}
-        </div>
+        <Login />
         <Pagination tasks={tasks} />
         <AddTaskForm addTask={this.addTask} />
       </div>

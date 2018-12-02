@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  clearFileField,
   validateAlpabetical,
   validateEmail,
   validateImg,
@@ -103,13 +104,13 @@ class AddTaskForm extends React.Component {
         isShowSuccessMessage: true,
         username: "",
         email: "",
-        text: "",
-        img: ""
+        text: ""
       });
     });
     document.getElementById("image-holder").innerHTML = "";
-    //document.getElementById("fileUpload")[0].value = "";
     document.getElementById("save").disabled = true;
+
+    clearFileField();
   };
 
   viewAddedTask = () => {

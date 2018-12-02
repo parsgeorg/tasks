@@ -29,3 +29,26 @@ export const validateImg = () => {
 
   return resCheck;
 };
+
+export const clearFileField = () => {
+  let form = document.getElementById("feedback");
+  let lengthFormElements = form.elements.length;
+  //Массив значений всех элементов формы
+  var values = new Array(form.elements.length);
+
+  //Запись значений всех элементов формы
+  for (var i = 0; i < lengthFormElements; i++) {
+    values[i] = form.elements.item(i).value;
+  }
+
+  form.reset(); //Сброс значений всех элементов формы
+
+  //Восстановление значений всех элементов формы, кроме input file
+  for (var j = 0; j < lengthFormElements; j++) {
+    //Здесь сравнивается тип, т.к. используется один input file
+    //Если элементов input file больше, то нужно использовать id
+    if (form.elements.item(j).type !== "file") {
+      form.elements.item(j).value = values[j];
+    }
+  }
+};
