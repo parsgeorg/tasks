@@ -34,3 +34,13 @@ src/components/FilteredProducts/index.js
 src/components/FilteredTasks/View — копия.js
 src/components/FilteredTasks/ViewWithSeparatedWorkingSorting.js
 src/components/FilteredTasks/index — копия.js
+src/components/FilteredTasks/View.js
+src/components/FilteredTasks/index.js
+src/components/LoginForm/View.js
+src/components/SortedTasks/View — копия.js
+src/components/SortedTasks/ViewWithSeparatedWorkingSorting.js
+src/components/SortedTasks/index — копия.js
+src/components/SortedTasks/View — копия.js
+src/components/SortedTasks/ViewWithSeparatedWorkingSorting.js
+src/components/SortedTasks/index — копия.js
+src/components/UI/Forms/Tasks/AddTaskForm/ViewFormik.js
