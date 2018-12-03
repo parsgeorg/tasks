@@ -9,7 +9,7 @@ const Login = () => (
       </button>
     ) : (
       <button onClick={logout} className="btn btn-lg btn-success">
-        Logout
+        Выйти
       </button>
     )}
   </div>
