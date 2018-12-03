@@ -58,15 +58,6 @@ class AddTaskForm extends React.Component {
     return this.setState({ imgErr: "", isModalShow: false, isValidImg: true });
   };
 
-  // checkValidForm = () => {
-  //   if ( this.state.username && this.state.email && this.state.text && this.state.img &&
-  //     !( this.state.usernameErr || this.state.emailErr || this.state.textErr || this.state.imgErr )
-  //   ) {
-  //     return this.setState({ isValidForm: true });
-  //   }
-  //   this.setState({ isValidForm: false });
-  // };
-
   changeField = ev => {
     ev.preventDefault();
     const nameField = ev.target.name;
@@ -136,7 +127,7 @@ class AddTaskForm extends React.Component {
     modalData.push(
       "Новая задача:",
       "ОК",
-      `Пользоватеь:${username}`,
+      `Cоздал:${username}`,
       `Email:${email}`,
       `Текст:${text.substr(0, 35)}`
     );
