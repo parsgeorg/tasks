@@ -10,7 +10,7 @@ export const getToken = async objectAuth => {
 
 export const getTasks = async () => {
   const url =
-    "https://uxcandy.com/~shapoval/test-task-backend/?developer='Georgiy'";
+    `${BASE_API}?developer='Georgiy'`;
   const body = await axios.get(url);
   return body.data.message.tasks;
 };
@@ -41,10 +41,6 @@ export const fileUpload = async () => {
       alert("This browser does not support FileReader.");
     }
   }
-  // } else {
-  //   if (imgPath.length > 0)
-  //     alert("Загрузите пожалуйста файл с расширением jpeg/png/gif!" + imgPath);
-  // }
 };
 
 export const addTask = async task => {
@@ -56,7 +52,7 @@ export const addTask = async task => {
   form.append("image", $("#fileUpload")[0].files[0]);
 
   const url =
-    "https://uxcandy.com/~shapoval/test-task-backend/create?developer='Georgiy'";
+    `${BASE_API}create?developer='Georgiy'`;
   const body = await axios.post(url, form);
 
   return body.data.message;
@@ -78,7 +74,7 @@ export const editTask = async ({ id, status, text = "" }) => {
 
   const signature = hash(`${tempQ}token=${token}`);
 
-  const url = `https://uxcandy.com/~shapoval/test-task-backend/edit/${id}?developer='Georgiy'`;
+  const url = `${BASE_API}edit/${id}?developer='Georgiy'`;
 
   const form = new FormData();
   status && form.append("status", status);
